@@ -1,0 +1,11 @@
+{
+  "name": "video2pdf-ai-root",
+  "version": "1.0.0",
+  "description": "Unified single-server deployment configuration for Video2PDF AI",
+  "private": true,
+  "scripts": {
+    "postinstall": "cd frontend && npm install && cd ../backend && npm install",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && node server.js"
+  }
+}
