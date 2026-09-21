@@ -14,7 +14,11 @@ const app = express();
 
 // Core middleware
 app.use(cors({ 
-  origin: process.env.NODE_ENV === 'production' ? process.env.FRONTEND_URL || false : 'http://localhost:5173', 
+  origin: [
+    'http://localhost:5173', 
+    'https://frontend-one-zeta-74.vercel.app',
+    process.env.FRONTEND_URL
+  ].filter(Boolean),
   credentials: true 
 }));
 app.use(express.json({ limit: '10mb' }));
