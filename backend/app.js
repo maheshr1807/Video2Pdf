@@ -38,6 +38,14 @@ app.get('/health', (req, res) => {
   res.json({ status: 'OK', message: 'Video2PDF AI Backend is running' });
 });
 
+app.get('/', (req, res, next) => {
+  if (process.env.NODE_ENV === 'production') return next();
+  res.json({
+    status: 'success',
+    message: 'Video2PDF backend is running'
+  });
+});
+
 // Global error handler
 app.use(errorHandler);
 
